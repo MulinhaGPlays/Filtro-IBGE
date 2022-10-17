@@ -6,5 +6,9 @@ from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 
 @csrf_exempt
-def departmentApi(request, id=None):
+def DepartmentApi(request, id=None):
     return Method(request, id, Departments, DepartmentSerializer, 'DepartmentID')
+
+@csrf_exempt
+def EmployApi(request, id=None):
+    return Method(request, id, Employees, EmployeeSerializer, 'EmployeeId')
