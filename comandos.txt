@@ -1,3 +1,4 @@
+---------Back-End---------
 Instalação:
     pip install requests
     pip install django
@@ -11,3 +12,11 @@ Utilitários:
     python manage.py shell
     python manage.py makemigrations
     python manage.py migrate
+---------Front-End---------
+Instalação:
+    npm install -g @angular/cli
+    npm i @mui/material@5.10.2 @emotion/react@11.10.0 @emotion/styled@11.10.0
+    npm i axios@0.27.2
+Projeto:
+    Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+    npx create-next-app . --ts
