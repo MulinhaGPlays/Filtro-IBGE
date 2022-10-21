@@ -14,7 +14,7 @@ Utilitários:
     python manage.py migrate
 ---------Front-End---------
 Instalação:
-    npm install -g @angular/cli
+    npm install -g npx
     npm i @mui/material@5.10.2 @emotion/react@11.10.0 @emotion/styled@11.10.0
     npm i axios@0.27.2
 Projeto:
