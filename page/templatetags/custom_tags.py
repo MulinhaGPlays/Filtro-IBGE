@@ -1,6 +1,10 @@
+from googletrans import Translator
 from django import template
 import requests
+
+trans = Translator()
 register = template.Library()
+
 
 @register.simple_tag
 def pokemon(pokemon):
@@ -10,7 +14,7 @@ def pokemon(pokemon):
     
 @register.simple_tag
 def sprite():
-    return principal['sprites']['front_default']
+    return {'static': principal['sprites']['front_default'], 'animated': principal['sprites']['versions']['generation-v']['black-white']['animated']['front_default']}
 
 @register.simple_tag
 def id():
@@ -64,3 +68,11 @@ def typeColor(type):
         case 'fairy':
             color ='#D685AD'
     return color
+
+@register.simple_tag
+def specie():
+    flavor_text = requests.get(principal['species']['url'])
+    flavor_text = flavor_text.json()
+    flavor_text = flavor_text['flavor_text_entries'][0]['flavor_text']
+    flavor_text = trans.translate(flavor_text, dest='pt').text
+    return flavor_text

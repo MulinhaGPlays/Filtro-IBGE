@@ -36,8 +36,25 @@
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
-          <div>
-            Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
+          <div class="row align-items-center">
+            <button type="button" class="col btn btn-link text-decoration-none">
+              <img src="http://pa1.narvii.com/6332/7c6747057319d532c720fe79d1a440b2982150a1_00.gif" class="img-fluid">
+            </button>
+            <button type="button" class="col btn btn-link text-decoration-none">
+              <img src="http://pa1.narvii.com/6332/7c6747057319d532c720fe79d1a440b2982150a1_00.gif" class="img-fluid">
+            </button>
+            <button type="button" class="col btn btn-link text-decoration-none">
+              <img src="http://pa1.narvii.com/6332/7c6747057319d532c720fe79d1a440b2982150a1_00.gif" class="img-fluid">
+            </button>
+            <button type="button" class="col btn btn-link text-decoration-none">
+              <img src="http://pa1.narvii.com/6332/7c6747057319d532c720fe79d1a440b2982150a1_00.gif" class="img-fluid">
+            </button>
+            <button type="button" class="col btn btn-link text-decoration-none">
+              <img src="http://pa1.narvii.com/6332/7c6747057319d532c720fe79d1a440b2982150a1_00.gif" class="img-fluid">
+            </button>
+            <button type="button" class="col btn btn-link text-decoration-none">
+              <img src="http://pa1.narvii.com/6332/7c6747057319d532c720fe79d1a440b2982150a1_00.gif" class="img-fluid">
+            </button>
           </div>
         </div>
       </div>
@@ -49,8 +66,19 @@
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
-          <div>
-            Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
+          <div class="container text-center">
+            <div class="row">
+              <div class="col">
+                <img src="https://www.w3schools.com/whatis/img_bootstrap.png" class="img-thumbnail" alt="Bootstrap">
+              </div>
+              <div class="col">
+                <img src="https://raw.githubusercontent.com/github/explore/7456fdff59816d37ef383a6c8f32a26ff7332db2/topics/django/django.png" class="img-thumbnail" alt="Django">
+              </div>
+              <div class="col">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Python.svg/1200px-Python.svg.png" class="img-thumbnail" alt="Python">
+              </div>
+              <div class="text-sm-end mt-2">Foram utilizados Bootstrap, um framework para design gráfico da página, django, um framwork python para a criação de aplicações web, tanto no front, quanto no backend e a própria linguagem python</div>
+            </div>
           </div>
         </div>
       </div>
@@ -61,13 +89,12 @@
           <h5 class="offcanvas-title" id="offcanvasExampleLabel">Sobre mim</h5>
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
-        <div class="offcanvas-body">
-          <div>
-            Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
-          </div>
+        <div class="offcanvas-body d-flex justify-content-center">
+          <img width="240em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=MulinhaGPlays&layout=compact&langs_count=7&theme=monokaihttps://github-readme-stats.vercel.app/api/top-langs/?username=MulinhaGPlays&hide=html&layout=compact=true&theme=monokai)"/>
         </div>
       </div>
-
+      
+      <!-- Pagination -->
       <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-end">
           {% if page.has_previous %}
@@ -87,10 +114,11 @@
       {% for Pokemon in page.object_list %}
         <!-- Pokemons -->
         <div {% pokemon Pokemon.name %} class="col">
+          {% sprite as sprite %}
           <div class="shadow card text-bg-success mb-3 text-center">
-            <h4 class="card-header">{% id %} - {{Pokemon.name}}</h4>
+            <h5 class="card-header">{% id %} - {{Pokemon.name}}</h5>
             <div style="background: url(https://thumbs.dreamstime.com/b/fundo-do-jogo-do-pixel-80083722.jpg); background-size: cover;">
-              <img src="{% sprite %}" class="card-img-top" alt="{{Pokemon.name}}">
+              <img src="{{sprite.static}}" class="card-img-top" alt="{{Pokemon.name}}" />
             </div>
             <div class="card-body col" style="background-color: #91553d;">
               {% type as types %}
@@ -108,26 +136,31 @@
 
         <!-- Modal -->
         <div class="modal fade" id="staticBackdrop{{Pokemon.name}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-          <div class="modal-dialog">
+          <div class="modal-dialog modal-dialog-scrollable">
             <div class="modal-content text-bg-dark p-3">
               <div class="modal-header">
                 <h1 class="modal-title fs-5" id="staticBackdropLabel">{% id %} - {{Pokemon.name}}</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                <div class="card mb-3">
-                  <img src="https://thumbs.dreamstime.com/b/fundo-do-jogo-do-pixel-80083722.jpg" class="card-img-top">
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                  </div>
+                <div class="rounded container-sm" style="background: url(https://thumbs.dreamstime.com/b/fundo-do-jogo-do-pixel-80083722.jpg); background-size: cover;">
+                  <img src="{{sprite.animated}}" class="container-sm" alt="{{Pokemon.name}}">
+                </div>
+                <br/>
+                <div class="card-body">
+                  {% for type in types %}
+                  {% typeColor type as color %}
+                  <span style="background-color: {{color}}" class="mx-1 badge col-md-4 text-center text-dark">{{type}}</span>
+                  {% endfor %}
+                  {% specie as specie %}
+                  <br/>
+                  <p class="card-text">{{specie}}</p>
                 </div>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                <button type="button" onclick="Remove()" class="btn btn-danger">Remover da equipe</button>
-                <button type="button" onclick="Add()" class="btn btn-success">Adicionar a equipe</button>
+                <button type="button" id="RemoveEquipe" class="btn btn-danger">Remover da equipe</button>
+                <button type="button" id="AddEquipe" class="btn btn-success">Adicionar a equipe</button>
               </div>
             </div>
           </div>
@@ -162,27 +195,17 @@
           </div>
         </div>
       </div>
-
-      <!-- Pagination -->
-      <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-end">
-          {% if page.has_previous %}
-          <li class="mx-1 btn btn-primary">
-            <a class="text-white text-decoration-none" href="{% url 'pagination' %}?page={{page.previous_page_number}}">Anterior</a>
-          </li>
-          {% endif %}
-          {% if page.has_next %}
-          <li class="mx-1 btn btn-primary">
-            <a class="text-white text-decoration-none" href="{% url 'pagination' %}?page={{page.next_page_number}}">Próximo</a>
-          </li>
-          {% endif %}
-        </ul>
-      </nav>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <script>
       const toastLiveExampleRemove = document.getElementById('liveToastRemove')
       const toastLiveExampleAdd = document.getElementById('liveToastAdd')
+      const AddEquipe = document.getElementById('AddEquipe')
+      const RemoveEquipe = document.getElementById('RemoveEquipe')
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+      var count = 0;
+      RemoveEquipe.disabled=true;
 
       function Remove() {
         const toast = new bootstrap.Toast(toastLiveExampleRemove)
@@ -191,7 +214,31 @@
       function Add() {
         const toast = new bootstrap.Toast(toastLiveExampleAdd)
         toast.show()
-      }
+      } 
+      function contador() 
+      {
+        Add()
+        count++;
+        if(count != 0){
+          RemoveEquipe.disabled=false;
+        }
+        if(count == 6){
+            AddEquipe.disabled=true;
+        }
+      };
+      function antiContador() 
+      {
+        Remove()
+        count--;
+        if(count != 6){
+          AddEquipe.disabled=false;
+        }
+        if(count == 0){
+            RemoveEquipe.disabled=true;
+        }
+      };
+      AddEquipe.onclick = () => contador()
+      RemoveEquipe.onclick = () => antiContador()
     </script>
   </body>
 </html>
