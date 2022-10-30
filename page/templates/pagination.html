@@ -1,0 +1,198 @@
+{% load custom_tags %}
+{% spaceless %}
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.rtl.min.css" integrity="sha384-7mQhpDl5nRA5nY9lr8F1st2NbIly/8WqhjTp+0oFxEA/QUuvlbF6M1KXezGBh3Nb" crossorigin="anonymous">
+    <link rel="icon" type="image/x-icon" href="https://cdn.iconscout.com/icon/premium/png-256-thumb/pokemon-28-674603.png">
+    <title>PokeParty</title>
+  </head>
+  <body class="text-bg-dark p-3">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-sm-top">
+      <div class="container-fluid">
+        <a class="navbar-brand p-0 me-0 me-lg-2" href="/" aria-label="Bootstrap">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="32" class="d-block my-1" viewBox="0 0 118 94" role="img">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z" fill="currentColor"></path>
+          </svg>
+        </a>
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link" data-bs-toggle="offcanvas" href="#offcanvasExampleEquipe" role="button" aria-controls="offcanvasExample">Equipe</a>
+            <a class="nav-link" data-bs-toggle="offcanvas" href="#offcanvasExampleTecnologias" role="button" aria-controls="offcanvasExample">Tecnologias</a>
+            <a class="nav-link" data-bs-toggle="offcanvas" href="#offcanvasExampleSobre" role="button" aria-controls="offcanvasExample">Sobre</a>
+          </div>
+        </div>
+      </div>
+    </nav>    
+    <div class="container-sm">
+
+      <!-- OffCanvas Equipe -->
+      <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasExampleEquipe" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasExampleLabel">Equipe Pokemon</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <div>
+            Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
+          </div>
+        </div>
+      </div>
+
+      <!-- OffCanvas Tecnologias -->
+      <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasExampleTecnologias" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasExampleLabel">Tecnologias Utilizadas</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <div>
+            Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
+          </div>
+        </div>
+      </div>
+
+      <!-- OffCanvas Sobre -->
+      <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasExampleSobre" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasExampleLabel">Sobre mim</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <div>
+            Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
+          </div>
+        </div>
+      </div>
+
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-end">
+          {% if page.has_previous %}
+          <li class="mx-1 btn btn-primary">
+            <a class="text-white text-decoration-none" href="{% url 'pagination' %}?page={{page.previous_page_number}}">Anterior</a>
+          </li>
+          {% endif %}
+          {% if page.has_next %}
+          <li class="mx-1 btn btn-primary">
+            <a class="text-white text-decoration-none" href="{% url 'pagination' %}?page={{page.next_page_number}}">Próximo</a>
+          </li>
+          {% endif %}
+        </ul>
+      </nav>
+
+      <div class="row row-cols-1 row-cols-md-5 g-4">
+      {% for Pokemon in page.object_list %}
+        <!-- Pokemons -->
+        <div {% pokemon Pokemon.name %} class="col">
+          <div class="shadow card text-bg-success mb-3 text-center">
+            <h4 class="card-header">{% id %} - {{Pokemon.name}}</h4>
+            <div style="background: url(https://thumbs.dreamstime.com/b/fundo-do-jogo-do-pixel-80083722.jpg); background-size: cover;">
+              <img src="{% sprite %}" class="card-img-top" alt="{{Pokemon.name}}">
+            </div>
+            <div class="card-body col" style="background-color: #91553d;">
+              {% type as types %}
+              <div class="row justify-content-md-center">
+                {% for type in types %}
+                {% typeColor type as color %}
+                <span style="background-color: {{color}}" class="mx-1 badge col-md-4 text-center text-dark">{{type}}</span>
+                {% endfor %}
+              </div>
+              <br/>
+              <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop{{Pokemon.name}}" class="btn btn-warning">Exibir</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop{{Pokemon.name}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content text-bg-dark p-3">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">{% id %} - {{Pokemon.name}}</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div class="card mb-3">
+                  <img src="https://thumbs.dreamstime.com/b/fundo-do-jogo-do-pixel-80083722.jpg" class="card-img-top">
+                  <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                <button type="button" onclick="Remove()" class="btn btn-danger">Remover da equipe</button>
+                <button type="button" onclick="Add()" class="btn btn-success">Adicionar a equipe</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+      </div>
+
+      <!-- Toast Remover -->
+      <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="liveToastRemove" class="toast p-3 text-bg-dark" role="alert" aria-live="assertive" aria-atomic="true">
+          <div class="toast-header p-3 text-bg-dark shadow">
+            <svg class="bd-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+              <rect width="100%" height="100%" fill="#ff0f17"></rect>
+            </svg>
+          </div>
+          <div class="toast-body">
+            Um Pokemon foi removido da equipe
+          </div>
+        </div>
+      </div>
+
+      <!-- Toast Adicionar -->
+      <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="liveToastAdd" class="toast p-3 text-bg-dark" role="alert" aria-live="assertive" aria-atomic="true">
+          <div class="toast-header p-3 text-bg-dark shadow">
+            <svg class="bd-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+              <rect width="100%" height="100%" fill="#0fff43"></rect>
+            </svg>
+          </div>
+          <div class="toast-body">
+            Um Pokemon foi adicionado à equipe
+          </div>
+        </div>
+      </div>
+
+      <!-- Pagination -->
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-end">
+          {% if page.has_previous %}
+          <li class="mx-1 btn btn-primary">
+            <a class="text-white text-decoration-none" href="{% url 'pagination' %}?page={{page.previous_page_number}}">Anterior</a>
+          </li>
+          {% endif %}
+          {% if page.has_next %}
+          <li class="mx-1 btn btn-primary">
+            <a class="text-white text-decoration-none" href="{% url 'pagination' %}?page={{page.next_page_number}}">Próximo</a>
+          </li>
+          {% endif %}
+        </ul>
+      </nav>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script>
+      const toastLiveExampleRemove = document.getElementById('liveToastRemove')
+      const toastLiveExampleAdd = document.getElementById('liveToastAdd')
+
+      function Remove() {
+        const toast = new bootstrap.Toast(toastLiveExampleRemove)
+        toast.show()
+      }
+      function Add() {
+        const toast = new bootstrap.Toast(toastLiveExampleAdd)
+        toast.show()
+      }
+    </script>
+  </body>
+</html>
+{% endspaceless %}

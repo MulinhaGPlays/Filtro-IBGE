@@ -1,22 +1,20 @@
 ---------Back-End---------
 Instalação:
     pip install requests
+    pip install pandas
     pip install django
     pip install djangorestframework
     pip install django-cors-headers
 Projeto:
-    django-admin startproject FiltroDjangoAPI .
+    django-admin startproject PokeParty .
     python manage.py startapp App
 Utilitários:
     python manage.py runserver
     python manage.py shell
     python manage.py makemigrations
     python manage.py migrate
----------Front-End---------
-Instalação:
-    npm install -g npx
-    npm i @mui/material@5.10.2 @emotion/react@11.10.0 @emotion/styled@11.10.0
-    npm i axios@0.27.2
-Projeto:
-    Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-    npx create-next-app . --ts
+    python manage.py createsuperuser
+
+'corsheaders',
+CORS_ORIGIN_ALLOW_ALL = True
+'corsheaders.middleware.CorsMiddleware',

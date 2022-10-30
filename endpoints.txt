@@ -1,8 +1,0 @@
-https://servicodados.ibge.gov.br/api/v3/
-agregados?periodo=P5[202001]
-agregados?assunto=70
-agregados?classificacao=12896
-agregados?periodicidade=P5
-agregados?nivel=N6
-agregados/1705/localidades/N7|N6 (agregados/{agregado}/localidades/{nivel})
-agregados/{agregado}/metadados
