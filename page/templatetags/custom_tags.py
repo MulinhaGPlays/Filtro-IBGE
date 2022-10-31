@@ -76,3 +76,7 @@ def specie():
     flavor_text = flavor_text['flavor_text_entries'][0]['flavor_text']
     flavor_text = trans.translate(flavor_text, dest='pt').text
     return flavor_text
+
+@register.simple_tag
+def btn():
+    print('click!')

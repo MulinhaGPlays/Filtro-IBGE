@@ -6,7 +6,7 @@ import requests
 # Create your views here.
 Pokemons = requests.get('https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0')
 Pokemons = Pokemons.json()
-Pokemons_Paginator = Paginator(Pokemons['results'], 1)
+Pokemons_Paginator = Paginator(Pokemons['results'], 10)
 @cache_page(60 * 5)
 def pagination(request):
     page_num = request.GET.get('page')
