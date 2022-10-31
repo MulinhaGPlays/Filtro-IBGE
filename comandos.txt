@@ -20,3 +20,5 @@ Utilitários:
 'corsheaders',
 CORS_ORIGIN_ALLOW_ALL = True
 'corsheaders.middleware.CorsMiddleware',
+
+ heroku git:remote -a filaupepokeparty
